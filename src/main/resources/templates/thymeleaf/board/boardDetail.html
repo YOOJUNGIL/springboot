@@ -1,0 +1,21 @@
+		<h1>content</h1>
+        <table border="1" style="width:100%">
+	        <tr>
+	        	<td>번호</td>
+	        	<td><span th:text="${board.no}">message</span></td>
+	        </tr>
+	        <tr>
+	        	<td>제목</td>	
+	        	<td><span th:text="${board.title}">message</span></td>
+	        </tr>
+	        <tr>	
+	        	<td>내용</td>
+	        	<td><span th:text="${board.content}">message</span></td>
+	        </tr>
+	        <tr>
+	        	<td>등록일</td>
+	        	<td><span th:text="${board.regDt}">message</span></td>
+	        </tr>
+        </table>
+        <br />
+        <a th:onclick="boardListVw();">게시판목록보기</a>

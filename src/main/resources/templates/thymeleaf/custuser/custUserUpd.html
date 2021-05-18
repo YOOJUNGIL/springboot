@@ -1,0 +1,19 @@
+		<h1>content</h1>
+        <table border="1" style="width:100%">
+	        <tr>
+	        	<td>ID</td>
+	        	<td><input type="text" id="userId" name="userId" th:value="${custUser.userId}"/></td>
+	        </tr>
+	        <tr>
+	        	<td>휴대폰</td>	
+	        	<td><input type="text" id="mobileNo" name="mobileNo" th:value="${custUser.mobileNo}"/></td>
+	        </tr>
+	        <tr>	
+	        	<td>주소</td>
+	        	<td><input type="text" id="addr" name="addr" th:value="${custUser.addr}"/></td>
+	        </tr>
+        </table>
+        <br />
+        <a th:onclick="custUserProc('U');">수정하기</a>							<br />
+        <a th:onclick="custUserProc('D', [[${custUser.userId}]]);">삭제하기</a>	<br />
+        <a th:onclick="custUserListVw();">고객목록보기</a>							<br />

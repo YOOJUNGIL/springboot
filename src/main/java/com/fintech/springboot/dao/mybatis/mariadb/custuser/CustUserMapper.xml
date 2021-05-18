@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fintech.springboot.dao.mybatis.mariadb.custuser.CustUserMapper">
+	
+	<select id="getCustUserList" parameterType="string" resultType="custUser">
+		select USER_ID
+		     , MOBILE_NO
+		     , ADDR
+		  from cust_user
+	</select>
+	
+	<select id="getCustUser" parameterType="string" resultType="custUser">
+		select USER_ID
+		     , MOBILE_NO
+		     , ADDR
+		  from cust_user
+		 where 1=1
+		   and USER_ID = #{userId}
+	</select>
+	
+	<insert id="save" parameterType="custUser">
+		insert into cust_user 
+		values (
+			#{userId}
+		  , #{mobileNo}
+		  , #{addr}
+		)
+	</insert>
+	
+	<update id="modify" parameterType="custUser">
+		update cust_user
+		set 
+			MOBILE_NO = #{mobileNo}
+		  , ADDR = #{addr}
+	  where USER_ID = #{userId}
+	</update>
+	
+	<delete id="delete" parameterType="string">
+		delete from cust_user
+	     where USER_ID = #{userId}
+	</delete>
+	
+</mapper>

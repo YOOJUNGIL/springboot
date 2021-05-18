@@ -1,0 +1,19 @@
+		<h1>content</h1>
+        <table border="1" style="width:100%">
+	        <tr>
+	        	<td>ID</td>
+	        	<td><span th:text="${custUser.userId}">message</span></td>
+	        </tr>
+	        <tr>
+	        	<td>휴대폰</td>	
+	        	<td><span th:text="${custUser.mobileNo}">message</span></td>
+	        </tr>
+	        <tr>	
+	        	<td>주소</td>
+	        	<td><span th:text="${custUser.addr}">message</span></td>
+	        </tr>
+        </table>
+        <br />
+        <a th:onclick="custUserMod([[${custUser.userId}]]);">수정화면 이동</a>		<br />
+        <a th:onclick="custUserProc('D', [[${custUser.userId}]]);">삭제하기</a>	<br />
+        <a th:onclick="custUserListVw();">고객목록보기</a>							<br />

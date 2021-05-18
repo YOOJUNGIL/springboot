@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout/default">
+
+    <!-- index.html 고유 CSS 추가 -->
+    <th:block layout:fragment="css">
+        <link rel="stylesheet" th:href="@{/css/home.css}" >
+    </th:block>
+    
+    <!-- index.html 고유 스크립트 추가 -->
+    <th:block layout:fragment="script">
+        <script th:src="@{/js/home.js}"></script>
+    </th:block>
+
+    <div layout:fragment="content">
+        <h1>content</h1>
+        <table border="1" style="width:100%">
+	        <tr th:each="custUser : ${custUserList}">
+	        	<td><a th:onclick="custUserDetailVw([[${custUser.userId}]]);"><span th:text="${custUser.userId}">message</span></a></td>
+	        	<td><span th:text="${custUser.mobileNo}">message</span></td>
+	        	<td><span th:text="${custUser.addr}">message</span></td>
+	        </tr>
+        </table>
+        <br />
+        <a th:onclick="custUserAdd();">등록화면 이동</a>		<br />
+        <a th:onclick="backHome();">홈페이지</a>				<br />
+    </div>
+</html>
